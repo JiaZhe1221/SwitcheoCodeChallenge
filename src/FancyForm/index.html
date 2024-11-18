@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modern Currency Swap</title>
+  <link href="style.css" rel="stylesheet" />
+</head>
+<body>
+  <div class="swap-container">
+    <form id="swap-form">
+      <h1>Currency Swap</h1>
+
+      <!-- Sell Section -->
+      <div>
+        <div class="form-section">
+          <div class="title">
+            <a>Sell</a>
+          </div>
+          <div class="amount-section">
+            <input 
+              id="input-amount" 
+              type="number" 
+              placeholder="Enter amount" 
+              required 
+              aria-label="Amount to send"
+            />
+            <div id="send-currency" class="custom-dropdown" aria-label="Send currency" data-selected="ETH">
+              <button type="button" class="dropdown-button">
+                <img src="images/eth-image.svg" alt="ETH" class="currency-icon" />
+                ETH
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+
+       <!-- Buy Section -->
+      <div>
+        <div class="form-section">
+          <div class="title">
+            <a>Buy</a>
+          </div>
+          <div class="amount-section">
+            <input 
+              id="output-amount" 
+              type="text" 
+              placeholder="Calculated automatically" 
+              readonly 
+              aria-label="Amount to receive"
+            />
+            <div id="receive-currency" class="custom-dropdown" aria-label="Receive currency" data-selected="USD">
+              <button type="button" class="dropdown-button">
+                <img src="images/usd-image.svg" alt="USD" class="currency-icon" />
+                USD
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+       
+
+      <!-- Swap Button in the Center -->
+      <div class="swap-button-center">
+        <button type="button" id="swap-button" aria-label="Swap currencies" class="swap-button">↓</button>
+      </div>
+
+     
+
+      <!-- Confirm Button -->
+      <button type="submit" id="submit-btn" class="connect-wallet">CONFIRM SWAP</button>
+    </form>
+    
+  </div>
+
+  <!-- Popup Menu -->
+  <div id="currency-modal" class="modal hidden">
+    <div class="modal-content">
+      <h2>Select Currency</h2>
+      <!-- Search bar for filtering currencies -->
+      <input
+        type="text"
+        id="currency-search"
+        class="search-bar"
+        placeholder="Search currency..."
+      />
+      <div id="modal-options" class="modal-options"></div>
+      <button id="close-modal" class="close-modal">Close</button>
+    </div>
+  </div>
+
+
+  <!-- Confirmation Message Modal -->
+  <div id="confirmation-modal" class="modal hidden">
+    <div class="modal-content">
+      <h2>Swap Confirmed</h2>
+      <p id="confirmation-message">You have successfully swapped currencies!</p>
+      <button id="close-confirmation-modal" class="close-modal">Close</button>
+    </div>
+  </div>
+
+
+  <script src="script.js"></script>
+</body>
+</html>
